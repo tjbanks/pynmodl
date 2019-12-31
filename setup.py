@@ -12,6 +12,6 @@ setup(name='pynmodl',
                                 'tests/parsing/*.dat']},
       zip_safe=False,
       setup_requires=['pytest-runner'],
-      install_requires=['textx', 'xmltodict'],
+      install_requires=['textx==1.6.1', 'xmltodict'],
       tests_require=['pytest', 'textx', 'xmltodict'],
       )
