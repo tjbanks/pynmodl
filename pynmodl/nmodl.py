@@ -2,6 +2,8 @@ import os
 from textx.metamodel import metamodel_from_file
 from textx.model import children_of_type, parent_of_type, model_root
 
+class ValidationException(Exception):
+    pass
 
 class NModlCompiler(object):
     def __init__(self):
@@ -127,9 +129,9 @@ class NModlCompiler(object):
             blks = blocks_of_type(prog.blocks, b)
             if len(blks) > 1:
                 # TODO: proper validation
-                print('Validation error:', 'multiple {} blocks'
-                      .format(b.capitalize))
-                exit(1)
+                # print('Validation error:', 'multiple {} blocks, try to consolidate these before continuing'
+                #      .format(b.capitalize()))
+                raise ValidationException('Validation error:', 'multiple {} blocks, try to consolidate these before continuing'.format(b.capitalize()))
             else:
                 if blks:
                     setattr(prog, b.lower(), blks[0])

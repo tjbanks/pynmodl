@@ -7,6 +7,7 @@ import constant
 import units
 import assigned
 import derivative
+import net_receive
 import breakpoint
 import expressions
 import initial
@@ -35,6 +36,7 @@ NModlBlock: Title
 			| Breakpoint
 			| Kinetic
 			| Derivative
+            | Net_Receive
 			| FuncDef
 			| Locals
 			| Include;
