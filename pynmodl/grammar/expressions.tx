@@ -33,7 +33,7 @@ Addition: op=Multiplication (op=PlusOrMinus op=Multiplication)* ;
 Multiplication: op=Exponentiation (op=MulOrDiv op=Exponentiation)*;
 Exponentiation: op=Negation (op=Exp op=Exponentiation)?; //using Exponentiation? here for right assoc
 Negation: (sign=PlusOrMinus)?  primary=Primary;
-Primary: FuncCall | Paren | Num | VarRef //| BuiltinVars;
+Primary: FuncCall | Paren | Num | VarRef; //| BuiltinVars;
 
 Var: Local | FuncPar | Variable | FuncDef | FromCounter ; // FuncDef here because of function return val syntax
 VarRef:  var=[Var] ('[' idx=Expression ']')?;
@@ -43,7 +43,6 @@ Func: FuncDef | FunctionTable;
 Callable: builtin=Builtin | user=[Func];
 FuncCall: func=Callable '(' args*=Expression[',']  ')';
 Paren: ('(' ex=Expression ')');
-//BuiltinVars: o=/[^0-9a-zA-Z][tv][^0-9a-zA-Z]/;
 
 FuncPar: name=ID (unit=UnitId)?;
 FuncDef:  (is_function?='FUNCTION' | is_procedure?='PROCEDURE')
