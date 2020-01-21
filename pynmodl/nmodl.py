@@ -25,6 +25,7 @@ class NModlCompiler(object):
             # NEURON
             'Neuron': self.handle_neuron_blk,
             'Suffix': self.handle_suffix,
+            'Point_Process': self.handle_point_process,
             'Global': self.handle_global,
             'Range': self.handle_range,
             'Pointer': self.handle_pointer,
@@ -65,6 +66,9 @@ class NModlCompiler(object):
 
             # FUNCTION - PROCEDURE
             'FuncsProcs': self.handle_funcsprocs,
+
+            # NET_RECEIVE
+            'Net_Receive': self.handle_netreceive,
 
             # expression-related
             'Table': self.handle_table,
@@ -139,6 +143,9 @@ class NModlCompiler(object):
     def handle_suffix(self, node):
         pass
 
+    def handle_point_process(self, node):
+        pass
+
     def handle_global(self, glob):
         pass
 
@@ -191,6 +198,11 @@ class NModlCompiler(object):
         pass
 
     def handle_solve(self, node):
+        pass
+
+    # net receive
+    #
+    def handle_netreceive(self, node):
         pass
 
     # expression-related

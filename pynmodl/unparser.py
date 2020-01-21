@@ -53,6 +53,9 @@ class Unparser(NModlCompiler):
 
     def handle_suffix(self, suff):
         suff.unparsed = 'SUFFIX ' + suff.suffix
+    
+    def handle_point_process(self, pp):
+        pp.unparsed = 'POINT_PROCESS ' + pp.suffix
 
     def handle_global(self, glob):
         glob.unparsed = 'GLOBAL ' + self.unparse_list(glob.globals)
@@ -131,6 +134,9 @@ class Unparser(NModlCompiler):
     # INITIAL
     def handle_initial_blk(self, init):
         init.unparsed = 'INITIAL ' + blockify(init.b.stmts)
+
+    def handle_netreceive(self, nr):
+        nr.unparsed = 'NET_RECEIVE ' + blockify(nr.b.stmts)
 
     # Expressions
     def binop(self, node):
