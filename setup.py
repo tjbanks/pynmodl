@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='pynmodlt',
-      version='0.1.1',
+      version='0.1.2',
       description='NMODL parsing and compiling tools, updated fork from borismarin pynmodl (http://github.com/borismarin/pynmodl)',
       url='http://github.com/tjbanks/pynmodl',
       author='Tyler Banks',
